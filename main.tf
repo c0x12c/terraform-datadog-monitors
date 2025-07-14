@@ -8,7 +8,7 @@ resource "datadog_monitor" "this" {
 
   name     = "[P${each.value.priority_level}] ${each.value.title_tags}: ${upper(var.environment)} - ${each.value.title}"
   type     = each.value.type
-  message  = each.value.priority_level >= 4 ? "" : local.message
+  message  = coalesce(each.value.override_default_message , each.value.priority_level >= 4 ? "" : local.message)
   priority = each.value.priority_level
   query = templatestring(each.value.query_template, merge(each.value.query_args, {
     threshold_critical = each.value.threshold_critical

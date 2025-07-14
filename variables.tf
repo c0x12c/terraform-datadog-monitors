@@ -4,6 +4,7 @@ variable "monitors" {
     priority_level              = number
     title_tags                  = string
     title                       = string
+    override_default_message    = optional(string, null)
     type                        = optional(string, "query alert")
     query_template              = string
     query_args                  = optional(map(string), {})
@@ -25,6 +26,7 @@ variable "monitors" {
     - priority_level: The priority level of the monitor.
     - title_tags: The tags to include in the title of the monitor.
     - title: The title of the monitor.
+    - override_default_message: An optional message to override the default slack mention.
     - type: The type of the monitor.
     - query_template: The template for the monitor query.
     - query_args: The arguments for the monitor query.
