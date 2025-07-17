@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.0]() (2025-07-14)
+
+### Features
+
+* Add override_default_message in monitors, allow adding custom message in datadog_monitor
+
 ## [0.1.38]() (2024-01-07)
 
 ### Features
